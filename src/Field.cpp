@@ -106,3 +106,61 @@ Square Field::get_mouse_hover(Vector2 mouse_pos)
 
 
 }
+
+void Field::update()
+{
+  
+  std::vector<Square*> squares;
+  std::cout << "1" << "\n"; 
+  //check filled rows
+  for(auto& row : field_squares)
+  {
+    bool filled = true;
+    for(auto& square : row)
+    {
+      if(square.type == SquareType::EMPTY)
+        filled = false;
+    }
+    if(filled)
+    {
+      for(auto& square : row)
+        squares.push_back(&square); 
+    }
+  }
+
+  std::cout << "2" << "\n"; 
+
+  //check filled columns
+  for(int i = 0; i < field_squares.size(); ++i)
+  {
+  std::cout << "3." << i << "\n"; 
+
+    bool filled = true;
+    for(int j = 0; j < field_squares[i].size(); ++j)
+    {
+      if(field_squares[j][i].type == SquareType::EMPTY)
+      {
+        filled = false;
+        break;
+      }
+    }
+    if(filled)
+    {
+      for(int j = 0; j < field_squares[i].size(); ++j)
+      {
+        squares.push_back(&field_squares[j][i]);
+      }
+    }
+
+    
+
+  } 
+
+  //delete away
+  for(auto& s : squares)
+  {
+    std::cout << "4." << "\n"; 
+    s->set_type(SquareType::EMPTY);
+
+  }
+}

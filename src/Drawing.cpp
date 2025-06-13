@@ -83,4 +83,7 @@ void Draw::draw_placement(const Block& block, Field& f, int x, int y, bool put)
   if(!f.try_put(block, x,y)) return;
   f.put(block, x,y, put ? SquareType::OCCUPIED : SquareType::OPTIONAL);
 
+  if(put)
+    f.update();
+
 }

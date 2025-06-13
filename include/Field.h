@@ -30,5 +30,7 @@ public:
 
   Square get_mouse_hover(Vector2 mouse_pos);
 
+  //clean out filled rows/columns
+  void update();
 };
 
