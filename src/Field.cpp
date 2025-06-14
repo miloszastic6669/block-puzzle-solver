@@ -111,7 +111,6 @@ void Field::update()
 {
   
   std::vector<Square*> squares;
-  std::cout << "1" << "\n"; 
   //check filled rows
   for(auto& row : field_squares)
   {
@@ -128,12 +127,10 @@ void Field::update()
     }
   }
 
-  std::cout << "2" << "\n"; 
 
   //check filled columns
   for(int i = 0; i < field_squares.size(); ++i)
   {
-  std::cout << "3." << i << "\n"; 
 
     bool filled = true;
     for(int j = 0; j < field_squares[i].size(); ++j)
@@ -159,7 +156,6 @@ void Field::update()
   //delete away
   for(auto& s : squares)
   {
-    std::cout << "4." << "\n"; 
     s->set_type(SquareType::EMPTY);
 
   }

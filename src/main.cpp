@@ -42,6 +42,8 @@ int main()
     else 
       Draw::draw_placement(current_blocks[Draw::selected_block], f, s.get_x(), s.get_y());
 
+    if(Draw::update_selected_block())
+      f.clean_optionals();
     EndDrawing();
     //check should close window
     if(IsKeyDown(KEY_LEFT_CONTROL) and IsKeyDown(KEY_C))
@@ -52,6 +54,7 @@ int main()
     {
       std::cout << f.put(Blocks::blocks[1], 3,2);
     }
+
   }
 
   CloseWindow();

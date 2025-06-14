@@ -49,9 +49,9 @@ void Draw::draw_blocks(const std::array<Block, 3>& blocks)
   int x_offset = SIZE/5;
   int y_offset = SIZE + (SIZE_WINDOW-SIZE)/3;
   int square_size = 30;
-  if(IsKeyDown(KEY_ONE)) selected_block = 0;
-  if(IsKeyDown(KEY_TWO)) selected_block = 1;
-  if(IsKeyDown(KEY_THREE)) selected_block = 2;
+  
+  
+
   for(int k = 0; k < blocks.size(); k++)
   {
     auto block = blocks[k];
@@ -85,5 +85,27 @@ void Draw::draw_placement(const Block& block, Field& f, int x, int y, bool put)
 
   if(put)
     f.update();
+
+}
+
+bool Draw::update_selected_block()
+{
+
+  if(IsKeyDown(KEY_ONE))   
+  {
+    selected_block = 0;
+    return true;
+  }
+  if(IsKeyDown(KEY_TWO))   
+  {
+    selected_block = 1;
+    return true;
+  }
+  if(IsKeyDown(KEY_THREE)) 
+  {
+    selected_block = 2; 
+    return true;
+  }
+  return false;
 
 }

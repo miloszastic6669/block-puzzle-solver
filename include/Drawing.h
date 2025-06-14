@@ -13,6 +13,7 @@ namespace Draw
   void draw_field(const Field& f);
   void draw_blocks(const std::array<Block, 3>& b);
   void draw_placement(const Block& block, Field& f, int x, int y, bool put = false); //put = true if the user clicked the mouse button to place block
+  bool update_selected_block();
 
 }
 
